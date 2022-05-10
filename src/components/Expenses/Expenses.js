@@ -8,7 +8,11 @@ import ExpensesChart from './ExpensesChart';
 import './Expenses.css';
 
 const Expenses = props => {
-  return <Card className="expenses"></Card>;
+  return (
+    <Card className="expenses">
+      <ExpensesList items={props.items} />
+    </Card>
+  );
 };
 
 export default Expenses;

@@ -4,9 +4,13 @@ import ExpenseForm from './ExpensrForm';
 import './NewExpense.css';
 
 const NewExpense = props => {
+  const onSubmitDateHandler = formDate => {
+    // console.log(formDate);
+    props.onReciveDate(formDate);
+  };
   return (
     <div className="new-expense">
-      <ExpenseForm />
+      <ExpenseForm onSubmitDate={onSubmitDateHandler} />
     </div>
   );
 };

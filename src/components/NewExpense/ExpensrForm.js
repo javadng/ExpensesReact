@@ -7,6 +7,8 @@ const ExpenseForm = props => {
   const [enteredDate, setEnteredDate] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
 
+  const [isOpened, setIsOpened] = useState(false);
+
   const AmountChangeHandler = e => {
     setEnteredAmount(e.target.value);
   };
@@ -22,6 +24,8 @@ const ExpenseForm = props => {
   const formSubmitHandler = e => {
     e.preventDefault();
 
+    setIsOpened(true);
+
     const expenseDate = {
       id: Math.random().toString(),
       title: enteredTitle,
@@ -34,9 +38,14 @@ const ExpenseForm = props => {
     setEnteredAmount('');
     setEnteredDate('');
     setEnteredTitle('');
+
   };
+
   return (
-    <form onSubmit={formSubmitHandler}>
+    <form
+      onSubmit={formSubmitHandler}
+      className={`${!isOpened ? 'hidden' : ''}`}
+    >
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
